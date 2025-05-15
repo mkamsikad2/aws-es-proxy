@@ -1,9 +1,11 @@
 FROM golang:1.20-alpine
 
+ARG GOARCH=amd64
+ENV GOARCH=${GOARCH}
 WORKDIR /go/src/github.com/abutaha/aws-es-proxy
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o aws-es-proxy
+RUN CGO_ENABLED=0 GOOS=linux go build -o aws-es-proxy
 
 FROM alpine:3.17
 LABEL name="aws-es-proxy" \
