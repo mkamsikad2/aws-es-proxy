@@ -1,6 +1,6 @@
 FROM golang:1.20-alpine
 
-ARG GOARCH=arm64
+ARG GOARCH=amd64
 ENV GOARCH=${GOARCH}
 WORKDIR /go/src/github.com/abutaha/aws-es-proxy
 COPY . .
